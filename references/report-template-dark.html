@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调研报告</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #111118;
+      --bg-tertiary: #1a1a24;
+      --bg-card: rgba(255,255,255,0.04);
+      --bg-glass: rgba(255,255,255,0.06);
+      --text-primary: #e8e8f0;
+      --text-secondary: #a8a8b8;
+      --text-muted: #686878;
+      --accent-blue: #4f8fff;
+      --accent-cyan: #00d4ff;
+      --accent-purple: #8b5cf6;
+      --accent-orange: #ff8c42;
+      --accent-red: #ff4757;
+      --accent-green: #2ed573;
+      --border-light: rgba(255,255,255,0.08);
+      --border-medium: rgba(255,255,255,0.12);
+      --gradient-blue: linear-gradient(135deg, #4f8fffa0, #8b5cf680);
+      --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #1a1a30 50%, #0a0a0f 100%);
+      --shadow-glow: 0 0 30px rgba(79,143,255,0.15);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(79,143,255,0.06) 0%, transparent 50%),
+                   radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* Hero */
+    .hero { padding: 80px 0 60px; text-align: center; background: var(--gradient-hero); position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-purple), transparent); opacity: 0.6; }
+    .hero-badge { display: inline-block; padding: 6px 16px; background: var(--glass); border: 1px solid var(--border-light); border-radius: 20px; font-size: 12px; font-weight: 500; color: var(--accent-cyan); margin-bottom: 24px; backdrop-filter: blur(12px); }
+    .hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .hero-subtitle { font-size: 15px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .hero-meta { display: flex; justify-content: center; gap: 24px; margin-top: 32px; font-size: 13px; color: var(--text-muted); }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* TOC */
+    .toc { background: var(--bg-glass); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 28px 32px; margin: 48px 0; backdrop-filter: blur(20px); position: sticky; top: 0; }
+    .toc-title { font-size: 14px; font-weight: 600; color: var(--accent-blue); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .toc-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 24px; }
+    .toc-list li a { color: var(--text-secondary); text-decoration: none; font-size: 14px; transition: color 0.2s; display: block; padding: 4px 0; }
+    .toc-list li a:hover { color: var(--accent-blue); }
+
+    /* Sections */
+    section { margin: 48px 0; }
+    .section-number { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; background: var(--gradient-blue); border-radius: var(--radius-sm); font-size: 14px; font-weight: 700; color: white; margin-right: 12px; vertical-align: middle; }
+    h2 { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 24px; display: flex; align-items: center; }
+    h3 { font-size: 17px; font-weight: 600; color: var(--text-primary); margin: 32px 0 16px; padding-left: 12px; border-left: 3px solid var(--accent-blue); }
+    h4 { font-size: 15px; font-weight: 600; color: var(--accent-cyan); margin: 24px 0 12px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; font-size: 15px; }
+    strong { color: var(--accent-purple); font-weight: 600; background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(79,143,255,0.1)); padding: 2px 8px; border-radius: 4px; }
+
+    /* Highlight Box */
+    .highlight-box { background: linear-gradient(135deg, rgba(79,143,255,0.08), rgba(139,92,246,0.06)); border: 1px solid rgba(79,143,255,0.2); border-radius: var(--radius-md); padding: 20px 24px; margin: 24px 0; position: relative; }
+    .highlight-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gradient-blue); border-radius: 4px 0 0 4px; }
+    .highlight-box p { color: var(--text-primary); margin-bottom: 0; font-weight: 500; }
+
+    /* Stats Grid */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .stat-card { background: var(--bg-glass); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; text-align: center; backdrop-filter: blur(12px); transition: all 0.3s; }
+    .stat-card:hover { transform: translateY(-2px); border-color: var(--accent-blue); }
+    .stat-value { font-size: 28px; font-weight: 800; color: var(--accent-blue); }
+    .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+    /* Case Card */
+    .case-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px 24px; margin: 16px 0; transition: border-color 0.2s; }
+    .case-card:hover { border-color: var(--accent-blue); }
+    .case-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .case-title { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+    .case-tag { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; }
+    .case-tag.accent { background: rgba(79,143,255,0.12); color: var(--accent-blue); }
+    .case-tag.green { background: rgba(46,213,115,0.12); color: var(--accent-green); }
+    .case-tag.purple { background: rgba(139,92,246,0.12); color: var(--accent-purple); }
+    .case-desc { font-size: 14px; color: var(--text-secondary); }
+    .case-metric { display: flex; gap: 24px; margin-top: 12px; font-size: 13px; }
+    .case-metric-item strong { color: var(--accent-cyan); font-weight: 600; }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius-md); border: 1px solid var(--border-light); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead { background: var(--bg-tertiary); }
+    th { padding: 14px 16px; text-align: left; font-weight: 600; color: var(--text-primary); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid var(--border-medium); }
+    td { padding: 14px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+    /* Progress Bar */
+    .compare-item { margin: 16px 0; }
+    .compare-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; }
+    .compare-label span:first-child { color: var(--text-secondary); }
+    .compare-label span:last-child { color: var(--accent-cyan); font-weight: 500; }
+    .compare-bar { height: 8px; background: var(--bg-tertiary); border-radius: 4px; overflow: hidden; }
+    .compare-fill { height: 100%; border-radius: 4px; transition: width 1s ease-out; }
+    .compare-fill.high { background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan)); }
+    .compare-fill.medium { background: linear-gradient(90deg, var(--accent-orange), var(--accent-blue)); }
+    .compare-fill.low { background: linear-gradient(90deg, var(--accent-red), var(--accent-orange)); }
+
+    /* References */
+    .refs-list { list-style: none; }
+    .refs-list li { padding: 10px 14px; margin: 6px 0; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border-light); font-size: 13px; display: flex; gap: 12px; align-items: flex-start; transition: border-color 0.2s; flex-wrap: wrap; }
+    .refs-list li:hover { border-color: var(--accent-blue); }
+    .refs-list li::before { color: var(--accent-blue); font-weight: 600; font-size: 11px; flex-shrink: 0; min-width: 28px; }
+    .refs-list a { color: var(--accent-blue); text-decoration: none; }
+    .refs-list a:hover { text-decoration: underline; }
+    .ref-meta { color: var(--text-muted); font-size: 12px; }
+
+    /* Footer */
+    .footer { margin-top: 64px; padding: 32px 0; border-top: 1px solid var(--border-light); text-align: center; }
+    .footer p { font-size: 12px; color: var(--text-muted); }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .toc-list { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 24px; }
+      .case-metric { flex-wrap: wrap; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">深度调研报告 · YEAR</div>
+    <h1>标题在此</h1>
+    <p class="hero-subtitle">一句话副标题</p>
+    <div class="hero-meta"><span>📅 DATE</span><span>🔬 N sources</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <div class="toc-title">目 录</div>
+    <ul class="toc-list">
+      <li><a href="#section0">0. 核心结论</a></li>
+    </ul>
+  </div>
+
+  <section id="section0">
+    <h2><span class="section-number">0</span> 核心结论</h2>
+    <div class="highlight-box">
+      <p>核心发现一句话</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>本报告由 Hermes Agent 基于公开信息调研生成</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.toc-list a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
