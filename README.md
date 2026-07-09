@@ -51,6 +51,7 @@
 | 竞品调研 | 拆竞品能力边界、定价逻辑、用户替代方案 |
 | 招投标情报 | 看采购品类、中标格局、供应商生态 |
 | 企业尽调 | 股权、经营、法律、行业地位的公开信息整理 |
+| 🆕 销售拜访准备 | 拜访前搜索行业动态+政策+招投标+案例，生成聊天话题和销售话术 |
 
 ### 产出的交付物
 
@@ -67,7 +68,9 @@
 
 深色渐变背景 + 毛玻璃卡片 + 左侧冻结目录 + 渐变标题 + 入场动画。
 
-→ 示例效果见 `references/report-template-dark.html`
+![报告预览](assets/report-preview.png)
+
+→ 示例 HTML 模板见 `references/report-template-dark.html`
 
 ## 文件结构
 
@@ -82,7 +85,10 @@ market-research/
 │   ├── reporting.md            # 报告写作规范 + HTML 生成规则
 │   ├── structure-patterns.md   # 报告结构模式（Cir.cn、Chinabgao、CAICT）
 │   ├── quality.md              # 质量控制 + 置信度标注 + 事实核查
+│   ├── sales-visit-prep.md    # 🆕 销售拜访准备：搜索策略、话题设计、话术模板
 │   └── report-template-dark.html # HTML 报告模板
+├── assets/
+│   └── report-preview.png     # HTML 报告效果截图
 ├── scripts/
 │   ├── render_html.py      # Markdown → HTML 渲染脚本
 │   ├── validate_skill.py   # 技能结构完整性检查
@@ -110,6 +116,11 @@ git clone https://github.com/yzmw123/market-research.git \
 调研一下工业AI质检这个方向有没有机会
 帮我做一份竞品对比分析
 看看XX行业的招投标格局
+
+# 销售拜访准备
+我今天要拜访电力行业的客户，帮我准备一下
+明天去见一个能源集团的领导，找点聊天话题
+下周去制造业客户那边，看看最近有什么行业动态
 ```
 
 ### 验证安装

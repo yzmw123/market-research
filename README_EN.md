@@ -51,6 +51,8 @@ Every step has a quality gate. If evidence is thin, the skill produces a validat
 
 Dark gradient background + glassmorphism cards + sticky left sidebar TOC + gradient headings + scroll animations.
 
+![Report Preview](assets/report-preview.png)
+
 → See `references/report-template-dark.html` for the template.
 
 ## File Structure
@@ -67,7 +69,10 @@ market-research/
 │   ├── reporting.md            # Report writing rules + HTML generation
 │   ├── structure-patterns.md   # Report patterns from Cir.cn, Chinabgao, CAICT
 │   ├── quality.md              # Quality gates + confidence scoring + fact-checking
+│   ├── sales-visit-prep.md    # 🆕 Sales visit prep: search strategies, topics, talk tracks
 │   └── report-template-dark.html # HTML report template
+├── assets/
+│   └── report-preview.png     # HTML report screenshot
 ├── scripts/
 │   ├── render_html.py      # Markdown → HTML renderer
 │   ├── validate_skill.py   # Static structure validator
@@ -94,6 +99,11 @@ git clone https://github.com/yzmw123/market-research.git \
 Research the competitive landscape for AI code editors
 Help me analyze the procurement patterns in government IT
 Is there an opportunity in industrial predictive maintenance?
+
+# Sales visit preparation
+I'm visiting a client in the power industry tomorrow, help me prepare
+Find some talking points for my meeting with an energy group executive
+What's happening in the manufacturing sector lately? I have client meetings next week
 ```
 
 ### Verify Installation
@@ -138,6 +148,7 @@ python3 scripts/run_evals.py --run all
 - **Competitor teardown**: Capability boundaries, pricing logic, user alternatives
 - **Procurement intelligence**: Tender categories, award patterns, supplier ecosystem
 - **Company diligence**: Equity, operations, legal, industry position from public sources
+- 🆕 **Sales visit preparation**: Scout industry news, policies, tenders, and case studies before a client meeting; generate conversation topics and sales talking points
 
 ## Research Boundaries (What This Skill Won't Do)
 

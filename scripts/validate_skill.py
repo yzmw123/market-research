@@ -22,6 +22,7 @@ REQUIRED_REFS = [
     "references/reporting.md",
     "references/structure-patterns.md",
     "references/quality.md",
+    "references/sales-visit-prep.md",
 ]
 
 
