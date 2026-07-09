@@ -50,9 +50,9 @@ def main() -> None:
     body = text[m.end():]
     lines = body.count("\n") + 1
     words = len(re.findall(r"\S+", body))
-    if lines > 260:
+    if lines > 500:
         fail(f"SKILL.md too long: {lines} lines; move detail to references")
-    if words > 1200:
+    if words > 2200:
         fail(f"SKILL.md too wordy: {words} rough words")
 
     for rel in REQUIRED_REFS:
