@@ -1,0 +1,37 @@
+research:
+  question: 中国工业 AI 质检市场是否存在可验证的进入机会？
+  scope: 中国制造业公开采购与应用信号
+  cutoff_date: "2026-07-01"
+  generated_at: "2026-07-13"
+sources:
+  - id: S1
+    title: 工业 AI 质检政策文件
+    publisher: 示例政府机构
+    url: https://example.com/policy
+    published_at: "2026-01-10"
+    retrieved_at: "2026-07-01"
+    source_type: primary
+    independence_group: government-policy
+  - id: S2
+    title: 制造业质量检测调查
+    publisher: 示例行业协会
+    url: https://example.org/survey
+    published_at: "2025-11-20"
+    retrieved_at: "2026-07-01"
+    source_type: institutional
+    independence_group: industry-association
+claims:
+  - id: C1
+    statement: 公开政策和行业调查均显示质量检测数字化是持续投入方向。
+    type: fact
+    confidence: high
+    source_ids: [S1, S2]
+    decision_impact: 支持继续验证细分场景预算与交付可复制性。
+  - id: C2
+    statement: 新进入者应优先验证缺陷数据可得且人工复检成本高的场景。
+    type: recommendation
+    confidence: medium
+    source_ids: [S1, S2]
+    limitations:
+      - 公开资料不能确认单一工厂的真实预算和采购周期。
+    decision_impact: 决定首批客户访谈与试点筛选条件。
